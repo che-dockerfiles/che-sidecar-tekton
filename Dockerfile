@@ -14,10 +14,10 @@ WORKDIR $GOPATH
 RUN cd src && git clone https://github.com/tektoncd/experimental && cd experimental/octant-plugin && \
     CGO_ENABLED=0 GOOS=linux go build -o $GOPATH/src/tekton-plugin -a -ldflags '-extldflags "-static"' .
 
-FROM quay.io/eclipse/che-sidecar-kubernetes-tooling:1.2.0-cbde020
+FROM quay.io/eclipse/che-sidecar-kubernetes-tooling:1.2.1-6144144
 
-ENV OCTANT_VERSION 0.12.1
-ENV TEKTONCD_VERSION 0.9.0
+ENV OCTANT_VERSION 0.16.0
+ENV TEKTONCD_VERSION 0.13.0
 
 RUN dnf install -y wget && \
     mkdir -p /home/theia/.octant/plugins && \
